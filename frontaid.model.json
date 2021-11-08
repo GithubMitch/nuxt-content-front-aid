@@ -8,7 +8,7 @@
   "pages": {
     ":items": {
       "title": {":type": "line"},
-      "desc": {"type": "line"},
+      "desc": {":type": "line"},
       "path": {":type": "line"},
       "content": {":type": "text", ":richtext": true}
     }
