@@ -8,6 +8,8 @@
   "pages": {
     ":items": {
       "title": {":type": "line"},
+      "desc": {"type": "line"},
+      "goof": {"type": "goof"},
       "path": {":type": "line"},
       "content": {":type": "text", ":richtext": true}
     }
