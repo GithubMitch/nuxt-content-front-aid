@@ -1,3 +1,4 @@
+import conf from './conf';
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -21,7 +22,7 @@ export default {
   plugins: [
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
+  // Auto importimport components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -37,6 +38,20 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
   ],
+
+  router: {
+    async extendRoutes(routes, resolve) {
+      const {$content} = require('@nuxt/content');
+      const {pages} = await $content(conf.CONTENT).fetch();
+      pages.forEach(page => {
+          routes.push({
+              path: page.path,
+              component: resolve(__dirname, 'components/MetaPage.vue'),
+              meta: page,
+          });
+      });
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
